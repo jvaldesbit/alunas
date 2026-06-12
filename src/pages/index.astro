@@ -1175,12 +1175,37 @@ const games = [
   .footer-link:hover { opacity: 1; }
 
   @media (max-width: 900px) {
-    .hero-inner    { flex-direction: column; gap: 3rem; }
-    .hero-text     { align-items: center; text-align: center; }
-    .hero-ctas     { justify-content: center; }
-    .stepper-main  { flex-direction: column; gap: 2rem; }
-    .stepper-content { min-height: 220px; }
-    .step-panel p  { max-width: 100%; }
+    /* hero */
+    .hero-inner { flex-direction: column; gap: 3rem; }
+    .hero-text  { align-items: center; text-align: center; }
+    .hero-ctas  { justify-content: center; }
+
+    /* stepper — tabs en scroll horizontal para que no rompan en filas */
+    .stepper-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .stepper-tabs::-webkit-scrollbar { display: none; }
+    .stab { min-width: 110px; flex-shrink: 0; }
+
+    /* stepper — phone encima, texto abajo */
+    .stepper-main { flex-direction: column; gap: 2rem; align-items: center; }
+
+    /* en mobile los paneles son estáticos para que definan su propia altura */
+    .stepper-content { min-height: 0; position: static; }
+    .step-panel {
+      position: static;
+      display: none;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+    .step-panel.active { display: block; }
+    .step-panel p { max-width: 100%; }
+    .step-panel h3 { font-size: 1.3rem; }
   }
 
   @media (max-width: 600px) {
