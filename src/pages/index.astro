@@ -95,6 +95,7 @@ const games = [
 <nav>
   <a href="/" class="nav-logo" aria-label="alunas home">
     <img src="/logo.svg" alt="alunas logo" height="32" />
+    <span class="nav-name">Alunas</span>
   </a>
   <a href={appUrl} class="btn btn-sm" target="_blank" rel="noopener">Abrir app →</a>
 </nav>
@@ -617,7 +618,14 @@ const games = [
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0,240,255,0.08);
   }
+  .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
   .nav-logo img { display: block; }
+  .nav-name {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
 
   /* BUTTONS */
   .btn {
