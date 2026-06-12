@@ -1,11 +1,11 @@
 ---
-const appUrl = 'https://verbs.jcvb.com.co';
+const appUrl = 'https://app.alunas.co';
 const games = [
-  { name: 'Quick Match', desc: 'Selección múltiple con vidas y rachas', icon: '⚡', color: '#667eea' },
-  { name: 'Speed Challenge', desc: 'Une pares en 60 segundos', icon: '⏱️', color: '#f093fb' },
-  { name: 'Type Master', desc: 'Escribe la respuesta exacta', icon: '⌨️', color: '#4f46e5' },
-  { name: 'Memory Cards', desc: 'Voltea y empareja tarjetas', icon: '🃏', color: '#06b6d4' },
-  { name: 'Practice', desc: 'Navega y pon a prueba tu memoria', icon: '📖', color: '#10b981' },
+  { name: 'Quick Match',     desc: 'Elige la respuesta correcta entre 4 opciones. Tienes vidas y un límite de tiempo por pregunta. Ideal para repasar rápido.',                    icon: '⚡', color: '#667eea' },
+  { name: 'Speed Challenge', desc: 'En 60 segundos empareja el mayor número de pares posible. Contra el reloj — cada par correcto suma puntos.',                                   icon: '⏱️', color: '#f093fb' },
+  { name: 'Type Master',     desc: 'Se muestra la pregunta y debes escribir la respuesta exacta. Sin pistas ni opciones. El modo más exigente para afianzar lo que aprendiste.', icon: '⌨️', color: '#4f46e5' },
+  { name: 'Memory Cards',    desc: 'El clásico juego de voltear cartas. Encuentra los pares de dos en dos. Tres dificultades: 6, 8 o 10 pares.',                                  icon: '🃏', color: '#06b6d4' },
+  { name: 'Practice',        desc: 'Sin presión ni puntuación. Navega por el contenido o activa el modo quiz para ponerte a prueba a tu propio ritmo.',                           icon: '📖', color: '#10b981' },
 ];
 ---
 
@@ -15,13 +15,76 @@ const games = [
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
-  <title>alunas — Aprende cualquier tema jugando</title>
-  <meta name="description" content="alunas convierte tu material de estudio en juegos interactivos para memorizar cualquier tema de forma efectiva y divertida." />
-  <meta property="og:title" content="alunas — Aprende cualquier tema jugando" />
-  <meta property="og:description" content="Convierte tu material de estudio en juegos interactivos." />
-  <meta property="og:image" content="/og.png" />
+
+  <!-- ── Primarios ── -->
+  <title>alunas — Aprende cualquier tema jugando | App gratuita con IA</title>
+  <meta name="description" content="Sube una foto o PDF, la IA extrae el contenido y lo convierte en juegos interactivos. 5 modos de juego para memorizar cualquier tema. Gratis, sin registro." />
+  <meta name="keywords" content="app de estudio, aprender jugando, flashcards con IA, memorizar vocabulario, juegos educativos, Gemini AI, app gratis, PWA educativa" />
+  <meta name="author" content="Julián Valdés" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://alunas.co" />
+
+  <!-- ── Open Graph (Facebook, WhatsApp, LinkedIn) ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="alunas" />
+  <meta property="og:locale"      content="es_CO" />
+  <meta property="og:url"         content="https://alunas.co" />
+  <meta property="og:title"       content="alunas — Aprende cualquier tema jugando" />
+  <meta property="og:description" content="Sube una foto o PDF, la IA extrae el contenido y lo convierte en juegos interactivos. 5 modos de juego. Gratis, sin registro." />
+  <meta property="og:image"       content="https://alunas.co/og.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="alunas — aprende cualquier tema jugando" />
+
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="alunas — Aprende cualquier tema jugando" />
+  <meta name="twitter:description" content="Sube una foto o PDF, la IA extrae el contenido y lo convierte en juegos interactivos. 5 modos de juego. Gratis, sin registro." />
+  <meta name="twitter:image"       content="https://alunas.co/og.png" />
+
+  <!-- ── PWA / Mobile ── -->
   <meta name="theme-color" content="#0a0f24" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="alunas" />
+
+  <!-- ── Íconos ── -->
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="apple-touch-icon" href="/logo.svg" />
+
+  <!-- ── Structured Data (Schema.org) ── -->
+  <script type="application/ld+json">{
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "alunas",
+      "url": "https://app.alunas.co",
+      "applicationCategory": "EducationApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "App de estudio que convierte fotos y PDFs en juegos interactivos usando IA. 5 modos de juego para memorizar cualquier tema.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Quick Match — selección múltiple con vidas",
+        "Speed Challenge — empareja pares en 60 segundos",
+        "Type Master — escribe la respuesta exacta",
+        "Memory Cards — voltea y empareja tarjetas",
+        "Practice — navega a tu propio ritmo"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Julián Valdés",
+        "url": "https://jcvb.com.co"
+      },
+      "inLanguage": "es"
+    })
+  }</script>
+
+  <!-- ── Fuentes ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -38,35 +101,37 @@ const games = [
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="spirit-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
-    <div class="badge">Disponible ahora · Gratis · Sin registro</div>
-    <h1>Aprende <em>cualquier tema</em><br/>jugando</h1>
-    <p class="subtitle">
-      alunas transforma tu material de estudio en juegos interactivos.<br/>
-      Practica con 5 modos de juego, compite con otros y memoriza más rápido.
-    </p>
-    <div class="hero-ctas">
-      <a href={appUrl} class="btn btn-primary" target="_blank" rel="noopener">Abrir en el navegador</a>
-      <a href="#instalar" class="btn btn-ghost">Instalar en mi celular ↓</a>
+
+    <!-- columna izquierda: texto -->
+    <div class="hero-text">
+      <div class="badge">Disponible ahora · Gratis · Sin registro</div>
+      <h1>Aprende <em>cualquier tema</em><br/>jugando</h1>
+      <p class="subtitle">
+        alunas transforma tu material de estudio en juegos interactivos.<br/>
+        Practica con 5 modos de juego, compite con otros y memoriza más rápido.
+      </p>
+      <div class="hero-ctas">
+        <a href={appUrl} class="btn btn-primary" target="_blank" rel="noopener">Abrir en el navegador</a>
+        <a href="#instalar" class="btn btn-ghost">Instalar en mi celular ↓</a>
+      </div>
     </div>
-    <div class="hero-preview">
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <div class="screen-top">
-            <img src="/logo.svg" alt="alunas" height="28" />
-            <span class="screen-badge">5 juegos</span>
-          </div>
-          <div class="game-cards-preview">
-            {games.map(g => (
-              <div class="game-pill" style={`background: ${g.color}22; border-color: ${g.color}44`}>
-                <span>{g.icon}</span>
-                <span>{g.name}</span>
-              </div>
-            ))}
-          </div>
+
+    <!-- columna derecha: iPhone -->
+    <div class="hero-device">
+      <div class="iphone">
+        <div class="iphone-btn iphone-silent"></div>
+        <div class="iphone-btn iphone-vol-up"></div>
+        <div class="iphone-btn iphone-vol-down"></div>
+        <div class="iphone-btn iphone-power"></div>
+        <div class="iphone-screen">
+          <img src="/home_app.png" alt="alunas — pantalla principal" class="iphone-screenshot" />
+          <div class="iphone-home-bar"></div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -74,23 +139,91 @@ const games = [
 <section class="how">
   <div class="container">
     <h2>Cómo funciona</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-icon">📚</div>
-        <h3>Elige un tema</h3>
-        <p>Selecciona el contenido que quieres aprender. Actualmente: verbos y sustantivos irregulares en inglés.</p>
+    <p class="section-sub">De tu material de estudio a un juego interactivo en segundos</p>
+
+    <div class="stepper">
+
+      <!-- indicadores de paso -->
+      <div class="stepper-tabs">
+        <button class="stab active" data-step="0">
+          <span class="stab-num">01</span>
+          <span class="stab-label">Abre Nuevo tema</span>
+        </button>
+        <button class="stab" data-step="1">
+          <span class="stab-num">02</span>
+          <span class="stab-label">Elige el archivo</span>
+        </button>
+        <button class="stab" data-step="2">
+          <span class="stab-num">03</span>
+          <span class="stab-label">La IA analiza</span>
+        </button>
+        <button class="stab" data-step="3">
+          <span class="stab-num">04</span>
+          <span class="stab-label">Revisa y edita</span>
+        </button>
+        <button class="stab" data-step="4">
+          <span class="stab-num">05</span>
+          <span class="stab-label">Guarda y juega</span>
+        </button>
       </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-icon">🎮</div>
-        <h3>Elige un juego</h3>
-        <p>5 modos de juego distintos para diferentes estilos de aprendizaje. Desde selección múltiple hasta escritura libre.</p>
+
+      <!-- barra de progreso -->
+      <div class="stepper-progress">
+        <div class="stepper-bar"></div>
       </div>
-      <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-icon">🏆</div>
-        <h3>Practica y compite</h3>
-        <p>Supera tus récords, crea Universos para practicar en grupo y ve tu progreso en tiempo real.</p>
+
+      <!-- contenido principal -->
+      <div class="stepper-main">
+
+        <!-- izquierda: iPhone -->
+        <div class="stepper-phone">
+          <div class="iphone">
+            <div class="iphone-btn iphone-silent"></div>
+            <div class="iphone-btn iphone-vol-up"></div>
+            <div class="iphone-btn iphone-vol-down"></div>
+            <div class="iphone-btn iphone-power"></div>
+            <div class="iphone-screen">
+              <div class="step-screens">
+                <img src="/1_ss_new_theme.PNG"      alt="Nuevo tema"       class="step-screen active" />
+                <img src="/2_ss_load_file.PNG"       alt="Elige el archivo" class="step-screen" />
+                <img src="/3_ss_analyze_file.PNG"    alt="La IA analiza"    class="step-screen" />
+                <img src="/4_ss_result_analyze.PNG"  alt="Revisa y edita"   class="step-screen" />
+                <img src="/5_ss_save_success.PNG"    alt="Guarda y juega"   class="step-screen" />
+              </div>
+              <div class="iphone-home-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- derecha: texto -->
+        <div class="stepper-content">
+          <div class="step-panel active">
+            <div class="step-tag">01</div>
+            <h3>Abre Nuevo tema</h3>
+            <p>Desde el menú principal toca <strong>Nuevo tema</strong>. Verás la pantalla de carga — acepta fotos, capturas, imágenes de libros o PDFs de hasta 20 MB. Cualquier material de estudio sirve.</p>
+          </div>
+          <div class="step-panel">
+            <div class="step-tag">02</div>
+            <h3>Elige tu archivo</h3>
+            <p>Selecciona una imagen de tu galería o toma una foto en el momento. La app muestra una vista previa del archivo antes de procesarlo — si no es el correcto, cámbialo con un toque.</p>
+          </div>
+          <div class="step-panel">
+            <div class="step-tag">03</div>
+            <h3>Gemini AI lo analiza</h3>
+            <p>Con un toque en <strong>Analizar con IA →</strong>, Gemini lee tu imagen y extrae el contenido automáticamente. No escribes nada — el modelo identifica columnas, filas y campos de estudio en segundos.</p>
+          </div>
+          <div class="step-panel">
+            <div class="step-tag">04</div>
+            <h3>Revisa y personaliza</h3>
+            <p>Antes de guardar puedes editar el nombre del tema, elegir un ícono y revisar cada fila extraída en la tabla de vista previa. Si algo no quedó bien, corrígelo aquí.</p>
+          </div>
+          <div class="step-panel">
+            <div class="step-tag">05</div>
+            <h3>Guardado — ¡a jugar!</h3>
+            <p>Tu tema queda guardado en el dispositivo al instante. Desde ese momento aparece en el selector y puedes practicarlo en cualquiera de los 5 modos de juego.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -99,8 +232,8 @@ const games = [
 <!-- GAMES -->
 <section class="games">
   <div class="container">
-    <h2>5 modos de juego</h2>
-    <p class="section-sub">Cada modo usa una mecánica diferente para reforzar la memoria</p>
+    <h2>Modalidades de juego</h2>
+    <p class="section-sub">Cinco mecánicas distintas para que memorizar nunca se sienta igual</p>
     <div class="games-grid">
       {games.map(g => (
         <div class="game-card" style={`--c: ${g.color}`}>
@@ -153,7 +286,7 @@ const games = [
           iPhone / iPad
         </div>
         <ol>
-          <li>Abre <strong>Safari</strong> y ve a <code>verbs.jcvb.com.co</code></li>
+          <li>Abre <strong>Safari</strong> y ve a <code>app.alunas.co</code></li>
           <li>Toca el botón de <strong>Compartir</strong> <span class="icon-inline">⎙</span></li>
           <li>Desplázate y toca <strong>"Agregar a pantalla de inicio"</strong></li>
           <li>Toca <strong>Agregar</strong> — ya aparece el ícono en tu pantalla</li>
@@ -168,7 +301,7 @@ const games = [
           Android
         </div>
         <ol>
-          <li>Abre <strong>Chrome</strong> y ve a <code>verbs.jcvb.com.co</code></li>
+          <li>Abre <strong>Chrome</strong> y ve a <code>app.alunas.co</code></li>
           <li>Toca el menú <strong>⋮</strong> (tres puntos arriba a la derecha)</li>
           <li>Toca <strong>"Agregar a pantalla de inicio"</strong> o <strong>"Instalar app"</strong></li>
           <li>Confirma — el ícono aparece en tu pantalla principal</li>
@@ -183,7 +316,7 @@ const games = [
           Desktop (Chrome / Edge)
         </div>
         <ol>
-          <li>Abre <strong>Chrome o Edge</strong> y ve a <code>verbs.jcvb.com.co</code></li>
+          <li>Abre <strong>Chrome o Edge</strong> y ve a <code>app.alunas.co</code></li>
           <li>Haz clic en el ícono <strong>⊕</strong> en la barra de direcciones</li>
           <li>Haz clic en <strong>"Instalar"</strong></li>
           <li>La app se abre en su propia ventana como app nativa</li>
@@ -201,14 +334,247 @@ const games = [
 
 <!-- FOOTER -->
 <footer>
-  <div class="container footer-inner">
-    <a href="/" class="footer-logo">
-      <img src="/logo.svg" alt="alunas" height="28" />
-    </a>
-    <p class="footer-copy">alunas · Aprende la forma divertida</p>
-    <a href={appUrl} class="footer-link" target="_blank" rel="noopener">verbs.jcvb.com.co</a>
+  <div class="container">
+
+    <!-- significado -->
+    <div class="footer-meaning">
+      <span class="footer-word">alunas</span>
+      <p>
+        Inspirado en <em>Aluna</em> — concepto sagrado de los Kogui de la Sierra Nevada de Santa Marta.
+        Para ellos, Aluna es el mundo espiritual del pensamiento puro: el espacio donde todo fue creado
+        antes de existir en el mundo material. Aprender, como Aluna, es un acto de creación.
+      </p>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-inner">
+      <a href="/" class="footer-logo" aria-label="alunas home">
+        <img src="/logo.svg" alt="alunas" height="28" />
+      </a>
+      <p class="footer-copy">
+        Hecho con amor por
+        <a href="https://jcvb.com.co" class="footer-author" target="_blank" rel="noopener">Julián Valdés</a>
+      </p>
+      <a href={appUrl} class="footer-link" target="_blank" rel="noopener">app.alunas.co</a>
+    </div>
+
   </div>
 </footer>
+
+
+<script>
+/* --- Stepper interactivo --- */
+(function () {
+  const DURATION = 40000;
+  const tabs    = document.querySelectorAll('.stab');
+  const panels  = document.querySelectorAll('.step-panel');
+  const screens = document.querySelectorAll('.step-screen');
+  const bar     = document.querySelector('.stepper-bar');
+  let current = 0;
+  let timer;
+
+  function goTo(n) {
+    tabs.forEach((t, i)    => t.classList.toggle('active', i === n));
+    panels.forEach((p, i)  => p.classList.toggle('active', i === n));
+    screens.forEach((s, i) => s.classList.toggle('active', i === n));
+    current = n;
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    bar.offsetWidth; // force reflow
+    bar.style.transition = `width ${DURATION}ms linear`;
+    bar.style.width = '100%';
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo((current + 1) % tabs.length), DURATION);
+  }
+
+  tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+    goTo(i);
+    resetTimer();
+  }));
+
+  goTo(0);
+  resetTimer();
+}());
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  const canvas = document.getElementById('spirit-canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Paleta espiritual: cian, azul/índigo, violeta, rosa
+  const PALETTE = [[175, 200], [215, 250], [258, 295], [308, 345]];
+
+  function randHue() {
+    const r = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+    return r[0] + Math.random() * (r[1] - r[0]);
+  }
+
+  function Spirit(large) {
+    this.large = large;
+    this.init(true);
+  }
+
+  Spirit.prototype.init = function (scatter) {
+    if (this.large) {
+      this.size  = 28 + Math.random() * 30;
+      this.spd   = 0.03 + Math.random() * 0.07;
+      this.baseA = 0.06 + Math.random() * 0.12;
+    } else {
+      this.size  = 5 + Math.random() * 17;
+      this.spd   = 0.13 + Math.random() * 0.34;
+      this.baseA = 0.30 + Math.random() * 0.48;
+    }
+
+    this.x = scatter ? Math.random() * canvas.width  : -this.size * 5;
+    this.y = scatter ? Math.random() * canvas.height : Math.random() * canvas.height;
+
+    this.angle  = Math.random() * Math.PI * 2;
+    this.angleV = (Math.random() - 0.5) * 0.005;
+    this.wobPh  = Math.random() * Math.PI * 2;
+    this.wobSpd = 0.006 + Math.random() * 0.010;
+    this.wobAmt = 0.35 + Math.random() * 0.65;
+    this.hue    = randHue();
+    this.targH  = randHue();
+    this.brPh   = Math.random() * Math.PI * 2;
+    this.brSpd  = 0.006 + Math.random() * 0.012;
+    this.flash  = 0;
+    this.flashCD = Math.floor(Math.random() * 360); // stagger initial cooldowns
+  };
+
+  Spirit.prototype.update = function () {
+    this.wobPh += this.wobSpd;
+    this.angle += this.angleV + Math.sin(this.wobPh) * this.wobAmt * 0.013;
+    this.x     += Math.cos(this.angle) * this.spd;
+    this.y     += Math.sin(this.angle) * this.spd;
+
+    const pad = this.size * 5;
+    if (this.x < -pad)                 this.x = canvas.width  + pad * 0.5;
+    if (this.x > canvas.width  + pad)  this.x = -pad * 0.5;
+    if (this.y < -pad)                 this.y = canvas.height + pad * 0.5;
+    if (this.y > canvas.height + pad)  this.y = -pad * 0.5;
+
+    const dh = this.targH - this.hue;
+    // hue moves faster while flashing so the color shift is visible
+    this.hue += dh * (this.flash > 0.1 ? 0.07 : 0.013);
+    if (Math.abs(dh) < 3) this.targH = randHue();
+
+    this.brPh += this.brSpd;
+    if (this.flash > 0)   this.flash  = Math.max(0, this.flash - 0.014);
+    if (this.flashCD > 0) this.flashCD--;
+  };
+
+  Spirit.prototype.draw = function () {
+    const breathe = 0.65 + 0.35 * Math.sin(this.brPh);
+    const a = Math.min(0.95, this.baseA * breathe + this.flash * 0.45);
+    const r = this.size * (2.8 + this.flash * 2.5);
+    const h = this.hue;
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+
+    // outer glow
+    const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, r);
+    g.addColorStop(0,    `hsla(${h},90%,97%,${a.toFixed(3)})`);
+    g.addColorStop(0.18, `hsla(${h},84%,80%,${(a * 0.80).toFixed(3)})`);
+    g.addColorStop(0.52, `hsla(${h},72%,62%,${(a * 0.28).toFixed(3)})`);
+    g.addColorStop(1,    `hsla(${h},60%,50%,0)`);
+
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, r, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+
+    // bright core only when flash is a fresh high spike (not sustained low glow)
+    if (this.flash > 0.5) {
+      const cr = this.size * 0.9 * this.flash;
+      const cg = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, cr);
+      cg.addColorStop(0,   `hsla(${h},100%,100%,${this.flash.toFixed(3)})`);
+      cg.addColorStop(0.5, `hsla(${h},95%,90%,${(this.flash * 0.4).toFixed(3)})`);
+      cg.addColorStop(1,   `hsla(${h},90%,80%,0)`);
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, cr, 0, Math.PI * 2);
+      ctx.fillStyle = cg;
+      ctx.fill();
+    }
+
+    ctx.restore();
+  };
+
+  function interact(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+    const th = (a.size + b.size) * 5.5;
+    const dSq = dx * dx + dy * dy;
+    if (dSq > th * th) return;
+
+    const d  = Math.sqrt(dSq);
+    const t  = 1 - d / th;
+    const mid = (a.hue + b.hue) / 2;
+
+    // flash is a one-time event gated by cooldown — not a sustained state
+    if (t > 0.6 && a.flashCD === 0 && b.flashCD === 0) {
+      a.hue    = mid + (Math.random() - 0.5) * 40;
+      b.hue    = mid + (Math.random() - 0.5) * 40;
+      a.flash  = 0.88;
+      b.flash  = 0.88;
+      a.flashCD = 360 + Math.floor(Math.random() * 240); // 6–10 s at 60fps
+      b.flashCD = 360 + Math.floor(Math.random() * 240);
+    } else if (t > 0.2) {
+      // approaching: blend color targets quietly, no flash
+      a.targH = mid + (Math.random() - 0.5) * 50;
+      b.targH = mid + (Math.random() - 0.5) * 50;
+    }
+
+    // gentle angular push so they drift apart naturally
+    const f  = t * 0.025;
+    const nx = dx / d;
+    const ny = dy / d;
+    a.angle += Math.atan2(ny,  nx)  * f;
+    b.angle += Math.atan2(-ny, -nx) * f;
+  }
+
+  function resize() {
+    const hero = canvas.parentElement;
+    canvas.width  = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  const spirits = [
+    ...Array.from({ length: 8  }, () => new Spirit(true)),
+    ...Array.from({ length: 38 }, () => new Spirit(false)),
+  ];
+
+  let active = true;
+
+  function loop() {
+    if (!active) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const s of spirits) s.update();
+    for (let i = 0; i < spirits.length; i++)
+      for (let j = i + 1; j < spirits.length; j++)
+        interact(spirits[i], spirits[j]);
+    for (const s of spirits) s.draw();
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+
+  document.addEventListener('visibilitychange', () => {
+    active = !document.hidden;
+    if (active) loop();
+  });
+}());
+</script>
 
 </body>
 </html>
@@ -297,27 +663,118 @@ const games = [
     padding: 5rem 1.5rem 4rem;
     position: relative;
     overflow: hidden;
+    background: radial-gradient(ellipse at 50% 20%, #130c2a 0%, #0a0f24 68%);
   }
-  .hero::before {
-    content: '';
+  #spirit-canvas {
     position: absolute;
-    top: -20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(0,240,255,0.07) 0%, transparent 65%);
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
+    z-index: 0;
   }
   .hero-inner {
     max-width: 1100px;
     margin: 0 auto;
     width: 100%;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- columna izquierda --- */
+  .hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  /* --- columna derecha --- */
+  .hero-device {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---- iPhone frame ---- */
+  .iphone {
+    position: relative;
+    width: 320px;
+    height: 650px;
+    background: linear-gradient(160deg, #2e2e34 0%, #1c1c22 55%, #2a2a30 100%);
+    border-radius: 58px;
+    /* outer metal ring */
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.13),
+      0 0 0 1px rgba(0,0,0,0.6),
+      0 40px 100px rgba(0,0,0,0.65),
+      0 0 70px rgba(120,90,255,0.1);
+    padding: 15px;
+  }
+  /* inner edge highlight — top sheen */
+  .iphone::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: 51px;
+    background: linear-gradient(170deg, rgba(255,255,255,0.07) 0%, transparent 35%);
+    pointer-events: none;
+  }
+
+  /* side hardware buttons */
+  .iphone-btn {
+    position: absolute;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, #303036, #222228);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .iphone-silent   { left: -3px; top: 140px; width: 3px; height: 36px; border-radius: 2px 0 0 2px; }
+  .iphone-vol-up   { left: -3px; top: 196px; width: 3px; height: 70px; border-radius: 2px 0 0 2px; }
+  .iphone-vol-down { left: -3px; top: 282px; width: 3px; height: 70px; border-radius: 2px 0 0 2px; }
+  .iphone-power    { right: -3px; top: 210px; width: 3px; height: 96px; border-radius: 0 2px 2px 0; }
+
+  /* screen */
+  .iphone-screen {
+    width: 100%;
+    height: 100%;
+    background: #07070f;
+    border-radius: 46px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 1.5rem;
+  }
+
+  /* screenshot de la app */
+  .iphone-screenshot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+  }
+
+  /* home indicator */
+  .iphone-home-bar {
+    position: absolute;
+    bottom: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 118px;
+    height: 4px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 2px;
+    z-index: 2;
   }
   .badge {
     display: inline-flex;
@@ -354,43 +811,6 @@ const games = [
   }
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
-  /* PHONE MOCKUP */
-  .hero-preview { margin-top: 2rem; }
-  .phone-mockup {
-    width: 280px;
-    background: var(--dark2);
-    border: 1px solid rgba(0,240,255,0.15);
-    border-radius: 28px;
-    padding: 1.5rem 1.2rem;
-    box-shadow: 0 0 60px rgba(0,240,255,0.08), 0 20px 60px rgba(0,0,0,0.5);
-    margin: 0 auto;
-  }
-  .phone-screen { display: flex; flex-direction: column; gap: 1rem; }
-  .screen-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .screen-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    background: rgba(0,240,255,0.12);
-    color: var(--cyan);
-    padding: 0.2rem 0.6rem;
-    border-radius: 100px;
-    border: 1px solid rgba(0,240,255,0.2);
-  }
-  .game-cards-preview { display: flex; flex-direction: column; gap: 0.5rem; }
-  .game-pill {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid;
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
 
   /* HOW IT WORKS */
   .how {
@@ -405,42 +825,141 @@ const games = [
     text-align: center;
     margin-bottom: 3rem;
   }
-  .steps {
+  /* ---- STEPPER ---- */
+  .stepper-tabs {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
-    justify-content: center;
   }
-  .step {
+  .stab {
     flex: 1;
-    min-width: 220px;
-    max-width: 280px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
+    min-width: 130px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--t), border-color var(--t);
+    color: var(--muted);
+    font-family: inherit;
   }
-  .step-icon {
-    width: 64px; height: 64px;
-    background: var(--dark3);
-    border: 1px solid rgba(0,240,255,0.15);
-    border-radius: 16px;
+  .stab.active {
+    background: rgba(0,240,255,0.07);
+    border-color: rgba(0,240,255,0.28);
+    color: #fff;
+  }
+  .stab:hover:not(.active) { background: rgba(255,255,255,0.04); }
+  .stab-num {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--cyan);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.2rem;
+  }
+  .stab-label { font-size: 0.85rem; font-weight: 600; }
+
+  .stepper-progress {
+    height: 2px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 1px;
+    margin: 1rem 0 2.5rem;
+    overflow: hidden;
+  }
+  .stepper-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--cyan), var(--green));
+    border-radius: 1px;
+  }
+
+  .stepper-main {
     display: flex;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  /* iPhone escalado dentro del stepper */
+  .stepper-phone { flex-shrink: 0; }
+  .stepper-phone .iphone {
+    width: 240px;
+    height: 490px;
+    border-radius: 46px;
+    padding: 11px;
+  }
+  .stepper-phone .iphone::before { border-radius: 45px; }
+  .stepper-phone .iphone-screen  { border-radius: 36px; }
+  .stepper-phone .iphone-silent   { top: 104px; height: 27px; }
+  .stepper-phone .iphone-vol-up   { top: 146px; height: 52px; }
+  .stepper-phone .iphone-vol-down { top: 210px; height: 52px; }
+  .stepper-phone .iphone-power    { top: 157px; height: 72px; }
+  .stepper-phone .iphone-home-bar { width: 88px; bottom: 8px; }
+
+  /* crossfade de screenshots */
+  .step-screens {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .step-screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0;
+    transition: opacity 0.65s ease;
+  }
+  .step-screen.active { opacity: 1; }
+
+  /* paneles de texto */
+  .stepper-content {
+    flex: 1;
+    position: relative;
+    min-height: 260px;
+  }
+  .step-panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+  .step-panel.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .step-tag {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+    color: var(--dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
   }
-  .step h3 { font-size: 1.1rem; font-weight: 700; color: #fff; }
-  .step p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-  .step-arrow {
-    font-size: 1.5rem;
-    color: var(--cyan);
-    opacity: 0.4;
-    padding-top: 1.5rem;
-    flex-shrink: 0;
+  .step-panel h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.8rem;
   }
+  .step-panel p {
+    font-size: 0.97rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 420px;
+  }
+  .step-panel strong { color: var(--cyan); font-weight: 600; }
 
   /* GAMES */
   .games { padding: 6rem 1.5rem; }
@@ -591,8 +1110,42 @@ const games = [
   footer {
     background: var(--dark2);
     border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 2.5rem 1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
   }
+
+  .footer-meaning {
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .footer-word {
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+  }
+  .footer-meaning p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.05);
+    margin-bottom: 2rem;
+  }
+
   .footer-inner {
     display: flex;
     align-items: center;
@@ -600,13 +1153,43 @@ const games = [
     flex-wrap: wrap;
     gap: 1rem;
   }
-  .footer-copy { font-size: 0.85rem; color: var(--muted); }
-  .footer-link { font-size: 0.85rem; color: var(--cyan); text-decoration: none; opacity: 0.7; }
+  .footer-copy {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .footer-author {
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity var(--t);
+    opacity: 0.85;
+  }
+  .footer-author:hover { opacity: 1; }
+  .footer-link {
+    font-size: 0.85rem;
+    color: var(--cyan);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity var(--t);
+  }
   .footer-link:hover { opacity: 1; }
+
+  @media (max-width: 900px) {
+    .hero-inner    { flex-direction: column; gap: 3rem; }
+    .hero-text     { align-items: center; text-align: center; }
+    .hero-ctas     { justify-content: center; }
+    .stepper-main  { flex-direction: column; gap: 2rem; }
+    .stepper-content { min-height: 220px; }
+    .step-panel p  { max-width: 100%; }
+  }
 
   @media (max-width: 600px) {
     .step-arrow { display: none; }
     .universes-text h2 { text-align: center; }
     .footer-inner { flex-direction: column; text-align: center; align-items: center; }
+    .footer-logo  { display: none; }
+    .iphone { width: 250px; height: 510px; border-radius: 48px; padding: 12px; }
+    .iphone-screen { border-radius: 38px; }
+    .iphone-home-bar { width: 100px; }
   }
 </style>
